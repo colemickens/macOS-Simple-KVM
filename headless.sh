@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OSK="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 VMDIR=$PWD
 OVMF=$VMDIR/firmware
 
 [[ -z "$MEM" ]] && {
-	MEM="1G"
+	MEM="4G"
 }
 
 [[ -z "$CPUS" ]] && {
@@ -24,7 +24,7 @@ OVMF=$VMDIR/firmware
 
 MOREARGS=()
 
-[[ "$HEADLESS" = "1" ]] && {
+[[ "${HEADLESS:-"1"}" = "1" ]] && {
     MOREARGS+=(-nographic -vnc :0 -k en-us)
 }
 

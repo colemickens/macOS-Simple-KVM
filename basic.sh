@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OSK="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 VMDIR=$PWD
@@ -26,3 +26,5 @@ qemu-system-x86_64 \
     -device ide-hd,bus=sata.2,drive=ESP \
     -drive id=InstallMedia,format=raw,if=none,file=BaseSystem.img \
     -device ide-hd,bus=sata.3,drive=InstallMedia \
+        -drive id=SystemDisk,if=none,file=MyDisk.qcow2 \
+    -device ide-hd,bus=sata.4,drive=SystemDisk \
